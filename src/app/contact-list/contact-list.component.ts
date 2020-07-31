@@ -1,27 +1,24 @@
-import { contacts } from './../contact';
-import { userContact } from './../userContact';
-import { Component, OnInit } from '@angular/core';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
+import { ContactListComponent } from "./contact-list.component";
 
-@Component({
-  selector: 'app-contact-list',
-  templateUrl: './contact-list.component.html',
-  styleUrls: ['./contact-list.component.css']
-})
-export class ContactListComponent implements OnInit {
-  contacts: userContact[];
-  newContact: any = {};
-  constructor() { }
+describe("ContactListComponent", () => {
+  let component: ContactListComponent;
+  let fixture: ComponentFixture<ContactListComponent>;
 
-  ngOnInit() {
-  // initialize your contacts here
-  }
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ContactListComponent],
+    }).compileComponents();
+  }));
 
-  addContact(newContact): any {
-    console.log('Add contact has been called');
-     // Fill your code here
-    // add contact to contacts list
-    // clear inputs
-   
-  }
-}
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ContactListComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it("should create", () => {
+    expect(component).toBeTruthy();
+  });
+});
